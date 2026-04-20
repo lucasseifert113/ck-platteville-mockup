@@ -17,8 +17,11 @@
   
   /* Hero */
   .hero {
-    background: linear-gradient(rgba(35,31,32,0.55), rgba(35,31,32,0.55)), url('https://countrykitchenrestaurants.com/wp-content/smush-webp/Platteville2_AboutPhoto.jpg.webp') center/cover;
-    color: white; text-align: center; padding: 70px 20px;
+    background: linear-gradient(rgba(35,31,32,0.55), rgba(35,31,32,0.55)), url('https://countrykitchenrestaurants.com/wp-content/smush-webp/Platteville2_AboutPhoto.jpg.webp') center/cover fixed;
+    color: white; text-align: center; padding: 100px 20px;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
   }
   .hero h1 { font-size: 2.6em; margin-bottom: 8px; font-weight: 700; }
   .hero .tagline { font-size: 1.1em; opacity: 0.9; margin-bottom: 6px; }
@@ -77,6 +80,17 @@
   .review-card .author { font-weight: 600; font-size: 0.85em; color: #666; }
 
   /* Community */
+  /* Parallax divider */
+  .parallax-divider {
+    background: linear-gradient(rgba(35,31,32,0.6), rgba(35,31,32,0.6)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600&q=80') center/cover fixed;
+    background-attachment: fixed;
+    padding: 80px 20px;
+    text-align: center;
+    color: white;
+  }
+  .parallax-divider h3 { font-size: 1.8em; margin-bottom: 8px; }
+  .parallax-divider p { font-size: 1.1em; opacity: 0.9; }
+  
   .community { background: #231f20; color: white; padding: 50px 20px; }
   .community .inner { max-width: 900px; margin: 0 auto; }
   .community h2 { color: white; }
@@ -95,7 +109,12 @@
   footer a { color: #ddd; }
 
   /* Mobile */
+  /* iOS/mobile parallax fallback */
+  @supports (-webkit-touch-callout: none) {
+    .hero, .parallax-divider { background-attachment: scroll; }
+  }
   @media (max-width: 768px) {
+    .hero, .parallax-divider { background-attachment: scroll; }
     .hero h1 { font-size: 2em; }
     .hours-grid, .about-content, .menu-grid { grid-template-columns: 1fr; }
     .reviews-grid { grid-template-columns: 1fr; }
@@ -204,6 +223,11 @@
     <div class="about-img" style="background: url('https://countrykitchenrestaurants.com/wp-content/smush-webp/Platteville2_AboutPhoto.jpg.webp') center/cover; color: transparent;">.</div>
   </div>
 </section>
+
+<div class="parallax-divider">
+  <h3>Good Food. Good People. Since 1977.</h3>
+  <p>47 years of home-style cooking in the heart of Platteville.</p>
+</div>
 
 <section id="reviews">
   <h2>What Our Guests Say</h2>
